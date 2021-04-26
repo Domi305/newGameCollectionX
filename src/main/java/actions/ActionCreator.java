@@ -21,6 +21,9 @@ public class ActionCreator {
         }
     }
 
+    /** add Game format:
+     * 'add Metal-Gear-Soli-2 Konami'
+     */
     private Optional<UserActions> createAddGameCollection(StringTokenizer tokenInput) {
         if (tokenInput.countTokens() != 2) {
             return Optional.empty();
@@ -30,6 +33,9 @@ public class ActionCreator {
         return Optional.of(new AddGameAction(gameCollection, title.replace("-", " "), publisher));
     }
 
+    /** remove Game by serial format:
+     * 'remove #'
+     */
     private Optional<UserActions> createRemoveGameAction(StringTokenizer tokenInput) {
         if (tokenInput.countTokens() !=1) {
             return Optional.empty();

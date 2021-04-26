@@ -11,11 +11,21 @@ public class GameCollection {
     private SerialProvider serialProvider = new SerialProvider();
 
     public Game add(Game game) throws DuplicateTitleException {
+        if (existByTitle(game.getTitle())) {
+            throw new DuplicateTitleException();
+        }
         int serial = serialProvider.nextSerial();
         Game gameWithSerial = withSerial(serial, game);
         games.put(serial, gameWithSerial);
         return gameWithSerial;
 
+    }
+
+    private boolean existByTitle(String title) {
+        return games.values()
+                .stream()
+                .map(Game::getTitle)
+                .anyMatch(title::equals);
     }
 
     private Game withSerial(int serial, final Game game) {

@@ -17,7 +17,7 @@ public class AddGameAction implements UserActions{
             Game addedGame = gameCollection.add(new Game(title, publisher));
             System.out.println("Game with title " + addedGame.getTitle() + " added to collection");
         } catch (DuplicateTitleException toIgnore) {
-            System.out.println(title + "  - game does exist in Collection. Try again");
+            System.out.println(title + " this game does exist in Collection. Try again");
         }
     }
 }

@@ -19,7 +19,7 @@ public class ListGamesCollection implements UserActions {
     }
 
     private String toLine(Game game) {
-        return String.format(ROW_FORMAT, "Serial", "Title", "Publisher");
+        return String.format(ROW_FORMAT, game.getSerial(), game.getTitle(), game.getPublisher());
     }
 
     private String createTopRowHeaders() {

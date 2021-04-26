@@ -1,5 +1,6 @@
 package actions;
 
+import games.DuplicateTitleException;
 import games.Game;
 import games.GameCollection;
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AddGameActionTest {
 
     @Test
-    public void shouldTestIfAddsGame(){
+    public void shouldTestIfAddsGame() throws DuplicateTitleException {
 
         //given
         GameCollection gameCollection = Mockito.mock(GameCollection.class);
